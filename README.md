@@ -1,4 +1,4 @@
-# VPC_test
+# VPC_GEN2_test
 just to do some vpc tests in IBM Cloud
 ## preparation
 - links to IBM Cloud docs
