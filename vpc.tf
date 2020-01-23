@@ -31,8 +31,8 @@ resource ibm_is_subnet "subnet1" {
   total_ipv4_address_count = 256
 }
 
-data ibm_is_image "ubuntu" {
-  name = "ubuntu-16-04-amd64"
+data ibm_is_image "os" {
+  name = "centos-7-amd64"
 }
 
 data ibm_is_ssh_key "ssh_key_id" {
@@ -49,7 +49,7 @@ resource ibm_is_instance "vsi1" {
   vpc     = "${ibm_is_vpc.vpc.id}"
   zone    = "${local.ZONE}"
   keys    = ["${data.ibm_is_ssh_key.ssh_key_id.id}"]
-  image   = "${data.ibm_is_image.ubuntu.id}"
+  image   = "${data.ibm_is_image.os.id}"
   profile = "cx2-2x4"
 
   primary_network_interface = {
