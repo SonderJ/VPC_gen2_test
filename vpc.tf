@@ -31,9 +31,9 @@ resource ibm_is_subnet "subnet1" {
   total_ipv4_address_count = 256
 }
 
-data ibm_is_image "os" {
-  name = "centos-7-amd64"
-}
+# data ibm_is_image "os" {
+#  name = "centos-7-amd64"
+#}
 
 data ibm_is_ssh_key "ssh_key_id" {
   name = "${var.ssh_key}"
