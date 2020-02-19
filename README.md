@@ -13,11 +13,11 @@ just to do some vpc tests in IBM Cloud
 3. what is Schematics
    - [Getting started with Schematics](https://cloud.ibm.com/docs/schematics?topic=schematics-getting-started)
    
-other related links
+1. other related links
 
-- [Announcing IBM Cloud Collection for Ansible](https://www.ibm.com/cloud/blog/announcements/ibm-cloud-collection-for-ansible)
+   - [Announcing IBM Cloud Collection for Ansible](https://www.ibm.com/cloud/blog/announcements/ibm-cloud-collection-for-ansible)
 
-Actually the [Getting started with Schematics](https://cloud.ibm.com/docs/schematics?topic=schematics-getting-started) explains the flow how to setup a a Schematics workspace and  
+Actually the [Getting started with Schematics](https://cloud.ibm.com/docs/schematics?topic=schematics-getting-started) explains the flow how to setup a a Schematics workspace and how to prepare your environment. However there are a lot of links left and right that fork quickly and are not all necessary and more confusing 
 
    this page links to a couple of subtask you have to complete if you start on a green field
    - [ ] setting up the playground 
