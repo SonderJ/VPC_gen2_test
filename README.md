@@ -45,17 +45,15 @@ Install or update the VPC infrastructure service plug-in.
 
     If you haven't done already in the past you have to create an ssh-key-pair and the public part of it has to be uploaded to your account
     
-´ssh-keygen -t rsa -C "jsonderorhoweveryouwanttocallme" -b 2048´
+    ´ssh-keygen -t rsa -C "jsonderorhoweveryouwanttocallme" -b 2048´
 
-the "-b 2048" is very important because in my ubuntu system the standard key length is 3072 which is not accepted by IBM Cloud (standard should be 2048)
+    the "-b 2048" is very important because in my ubuntu system the standard key length is 3072 which is not accepted by IBM Cloud (standard should be 2048)
  
+    You can upload the public key using the CLI:
 
+    ´ibmcloud is key-create jsonder @js_ssh_key2048.pub --resource-group-name default´
 
-You can upload the public key using the CLI:
-
-´ibmcloud is key-create jsonder @js_ssh_key2048.pub --resource-group-name default´
-
-... or via the IBM Cloud Portal 
+    ... or via the IBM Cloud Portal 
 
  
    this page links to a couple of subtask you have to complete if you start on a green field
