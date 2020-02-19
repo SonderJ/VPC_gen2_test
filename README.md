@@ -4,12 +4,15 @@ just to do some vpc tests in IBM Cloud
 - links to IBM Cloud docs
 
 1. what is Terraform
-   1. [Good introduction video about Terraform](https://www.ibm.com/cloud/blog/new-builders/terraform)
+   - [Terraform introduction video](https://www.ibm.com/cloud/blog/new-builders/terraform)
+   - [O'reilly Book: Terraform Up & Running] (https://learning.oreilly.com/library/view/terraform-up-and/9781491977071/cover.html)
+   - [HashiCorp Terraform reference] (https://www.terraform.io/intro/index.html)
    
-   [Announcing IBM Cloud Collection for Ansible] (https://www.ibm.com/cloud/blog/announcements/ibm-cloud-collection-for-ansible)
-2. [Getting started with Schematics](https://cloud.ibm.com/docs/schematics?topic=schematics-getting-started)
+3. what is Schematics
+   - [Getting started with Schematics](https://cloud.ibm.com/docs/schematics?topic=schematics-getting-started)
+   
 
-3. related links
+related links
    1.[Announcing IBM Cloud Collection for Ansible] (https://www.ibm.com/cloud/blog/announcements/ibm-cloud-collection-for-ansible)
 
 
