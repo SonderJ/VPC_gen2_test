@@ -18,16 +18,19 @@ just to do some vpc tests in IBM Cloud
 
    - [Announcing IBM Cloud Collection for Ansible](https://www.ibm.com/cloud/blog/announcements/ibm-cloud-collection-for-ansible)
 
-Actually the [Getting started with Schematics](https://cloud.ibm.com/docs/schematics?topic=schematics-getting-started) explains the flow how to setup a a Schematics workspace and how to prepare your environment. However there are a lot of links left and right that fork quickly and might get you off the track and more confusing 
+Actually the [Getting started with Schematics](https://cloud.ibm.com/docs/schematics?topic=schematics-getting-started) explains the flow how to setup a Schematics workspace and how to prepare your environment. However there are a lot of links left and right that fork quickly and might get you off the track and might confuse more than help. 
 
-the essential steps are:
-1. create a [Github account](https://github.com/) to maintain and store your Terraform code
+So just a few escorting hints and essential steps ...
+
+1. Create a [Github account](https://github.com/) to maintain and store your Terraform code
    If you want to use Terraform together with Schematics you have to use Github to link to your Terraform code templates
-1. you have to have access to a fully functional account. 
+1. You a fully functional IBM Cloud account. 
 
-**Don't try to create resources trough schematics with a Lite Account!** 
+   So either upgrade your free Lite Account or someone who geives you access to his account  
 
-Even if `terraform plan` command completes successfully the `terraform apply` command will only make it half way through. It successfuly creates a VPC and security groups and maybe other "free" resources but it gets stuck when creating the actual VSI. It leaves you with a Zombie-VSI that remains in starting state and you will not be able to delete this VM (not with ´terraform destroy' nor manually through the GUI). The only way to get rid of this guy is to open a ticket and let the 3rd Level support kill him.
+   **Don't try to create resources trough schematics with a Lite Account!** 
+
+  Even if `terraform plan` command completes successfully the `terraform apply` command will only make it half way through. It successfuly creates a VPC and security groups and maybe other "free" resources but it gets stuck when creating the actual VSI. It leaves you with a Zombie-VSI that remains in starting state and you will not be able to delete this VM (not with ´terraform destroy' nor manually through the GUI). The only way to get rid of this guy is to open a ticket and let the 3rd Level support kill him.
 
 2. [Installing the stand-alone IBM Cloud CLI on your local system](https://cloud.ibm.com/docs/cli?topic=cloud-cli-install-ibmcloud-cli)
 
