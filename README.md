@@ -1,5 +1,5 @@
-# VPC_GEN2_test
-just to do some vpc tests in IBM Cloud
+# Terraform on VPC Gen2 Test
+Just a very simple test to provision to do some vpc tests in IBM Cloud
 ## preparation
 ### things to read and watch
 1. About Terraform
@@ -67,3 +67,19 @@ So just a few escorting hints and essential steps ...
 
     ... or via the IBM Cloud Portal 
 
+When do you need actually need the Command line Interface?
+
+Actually I don't remember that I really needed the CLI to just execute Terraform templates with Schematics and Github. 
+
+```terraform
+resource ibm_is_subnet "subnet1" {
+  name = "${local.BASENAME}-subnet1"
+  vpc  = "${ibm_is_vpc.vpc.id}"
+  zone = "${local.ZONE}"
+  total_ipv4_address_count = 256
+}
+
+data ibm_is_image "os" {
+  name = "ibm-ubuntu-18-04-1-minimal-amd64-1"
+}
+```
