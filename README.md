@@ -33,42 +33,37 @@ So just a few escorting hints and essential steps ...
    Even if the `terraform plan` command completes successfully the `terraform apply` command will only make it half way through. 
        It successfuly creates a VPC and security groups and maybe other "free" resources but it gets stuck when creating the actual VSI. It leaves you with a Zombie-VSI that remains in starting state and you will not be able to delete this VM (not with ´terraform destroy' nor manually through the GUI). The only way to get rid of this undead is to open a ticket and let the 3rd Level support kill him for you.
 
-2. [Install the stand-alone IBM Cloud CLI on your local system](https://cloud.ibm.com/docs/cli?topic=cloud-cli-install-ibmcloud-cli)
+3. [Install the stand-alone IBM Cloud CLI on your local system](https://cloud.ibm.com/docs/cli?topic=cloud-cli-install-ibmcloud-cli)
 
    You usually install the CLI directly on your Laptop but with Windows it comes with a Container environment that conflicts with other Hypervisors you may have installed so I finally decided to install everything on an Ubuntu-based VM (not all Unix derivates are supported by the CLI installer! - Ubuntu works fine , MINT doesn't)  
       
-   For the first time use you IBM Cloud ID to log in with specifying the region (you don't need the ´-r´ option)
-   ´ibmcloud login --sso -r us-south´
+   For the first time use you IBM Cloud ID to log in with specifying the region (you don't need the `-r` option)
+   `ibmcloud login --sso -r us-south`
    This involves your web-browser in the log in process to supply you with an access token which needs to be copied back to your CLI. 
 
    If you want to avoid this web-browser-detour you better [create an API-key](https://cloud.ibm.com/docs/iam?topic=iam-userapikey#create_user_key) for future logins
 
-   ´ibmcloud iam api-key-create MyKey -d "this is my API key" --file key_file´
-   
-   example: ´ibmcloud iam api-key-create jsonder -d "Joergs API key" --file js_api_key´
+   `ibmcloud iam api-key-create MyKey -d "this is my API key" --file key_file`
+ 
+   example: `ibmcloud iam api-key-create jsonder -d "Joergs API key" --file js_api_key`
 
-   - [logging in with an API-key](https://cloud.ibm.com/docs/iam?topic=iam-federated_id#federated_id)
-   ´ibmcloud login --apikey @key_file_name´
+   [logging in with an API-key](https://cloud.ibm.com/docs/iam?topic=iam-federated_id#federated_id)
+   `ibmcloud login --apikey @key_file_name`
 
-Install or update the VPC infrastructure service plug-in.
-´ibmcloud plugin install vpc-infrastructure´
+    Install or update the VPC infrastructure service plug-in.
+    `ibmcloud plugin install vpc-infrastructure`
 
-3. create ssh-key
+3. Create your ssh-key pair
 
     If you haven't done already in the past you have to create an ssh-key-pair and the public part of it has to be uploaded to your account
     
-    ´ssh-keygen -t rsa -C "jsonderorhoweveryouwanttocallme" -b 2048´
+    `ssh-keygen -t rsa -C "jsonderorhoweveryouwanttocallme" -b 2048`
 
-    the "-b 2048" is very important because in my ubuntu system the standard key length is 3072 which is not accepted by IBM Cloud (standard should be 2048)
+    the "-b 2048" is very important because in my ubuntu system the standard key length is 3072 (standard should be 2048) which is not accepted by IBM Cloud (IBM Cloud accepts the key-lengths 2048 and 4096)
  
     You can upload the public key using the CLI:
 
-    ´ibmcloud is key-create jsonder @js_ssh_key2048.pub --resource-group-name default´
+    `ibmcloud is key-create jsonder @js_ssh_key2048.pub --resource-group-name default`
 
     ... or via the IBM Cloud Portal 
 
- 
-   this page links to a couple of subtask you have to complete if you start on a green field
-   - [ ] setting up the playground 
-   - [x] setting up CLI for VPC
-- create and publish you ssh key
