@@ -21,6 +21,8 @@ just to do some vpc tests in IBM Cloud
 Actually the [Getting started with Schematics](https://cloud.ibm.com/docs/schematics?topic=schematics-getting-started) explains the flow how to setup a a Schematics workspace and how to prepare your environment. However there are a lot of links left and right that fork quickly and might get you off the track and more confusing 
 
 the essential steps are:
+1. create a [Github account](https://github.com/) to maintain and store your Terraform code
+   If you want to use Terraform together with Schematics you have to use Github to link to your Terraform code templates
 1. you have to have access to a fully functional account. 
 
 **Don't try to create resources trough schematics with a Lite Account!** 
@@ -32,10 +34,10 @@ Even if `terraform plan` command completes successfully the `terraform apply` co
 For the first time use you IBM ID to log in with specifying the region 
 ´ibmcloud login --sso -r eu-de´
 
-Creating an API key : https://cloud.ibm.com/docs/iam?topic=iam-userapikey#create_user_key
-ibmcloud iam api-key-create MyKey -d "this is my API key" --file key_file
-ibmcloud iam api-key-create jsonder -d "Joergs API key" --file js_api_key
+[Creating an API key][https://cloud.ibm.com/docs/iam?topic=iam-userapikey#create_user_key]
 
+´ibmcloud iam api-key-create MyKey -d "this is my API key" --file key_file´
+example: ´ibmcloud iam api-key-create jsonder -d "Joergs API key" --file js_api_key´
 
 logging in with an API-key
 https://cloud.ibm.com/docs/iam?topic=iam-federated_id#federated_id
