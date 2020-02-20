@@ -96,8 +96,8 @@ resource ibm_is_instance "vsi1" {
   image   = "${data.ibm_is_image.os.id}"
   profile = "bx2-2x8"
 ```
-(as you see above... actually you need the image-id but adding this in the terraform file doesn't make it easier for human beeing to read)
+You might have spotted above that you actually need the _image-id_ (first column in the image below) but using this in the terraform file doesn't make it easier for human beeings to read i)
 
-result of ´ibmcloud is images´
+result of `ibmcloud is images`
 
 ![ibmcloud is images](./ibmcloud_is_images.gif)
