@@ -57,8 +57,11 @@ So just a few escorting hints and essential steps ...
     `ibmcloud plugin install vpc-infrastructure`
     
 3. Babysteps to get started with the CLI
-   All CLI commands to deal with VPCs in IBM Cloud start with `ibmcloud is` (infrastructure service)
-   ... so the most important command for you in the beginning will be `ibmcloud is --help` :grinning:
+   All CLI commands to deal with VPCs in IBM Cloud start with `ibmcloud is` (is = infrastructure service)
+   
+   So the most important command for you in the beginning will be `ibmcloud is --help` 
+   
+   ... end of baby steps guide :grinning:
 
 3. Create your ssh-key pair
 
@@ -81,7 +84,7 @@ So just a few escorting hints and essential steps ...
 Actually I don't remember that I really needed the CLI to just execute an existing Terraform template with Schematics and Github.
 
 Only if you want to change something in the terraform-files you might need to pull some information out of the IBM Cloud. For example I changed the terraform-file which is actually based on the sample code of the [Getting started with Schematics](https://cloud.ibm.com/docs/schematics?topic=schematics-getting-started) guide to provision on a Gen2 based VPC instead of Gen1. 
-In Gen2 the image names are slightly different (I wouldn't mind but Terraform does :wink:) so I had to change the image name (or image ID) in [vpc.tf](./vpc.tf). ~~You can not~~ I could not find this imgage name in the GUI but the CLI command `ibmcloud is images` lists all images in the region so that I was able to pick the one I needed   
+In Gen2 the image names are slightly different (I wouldn't mind but Terraform does :wink:) so I had to change the image name (or image ID) in [vpc.tf](./vpc.tf). ~~You can not~~ I could not find this image name in the GUI but the CLI command `ibmcloud is images` lists all images in the region so I was able to pick the one I needed.
 
 ```terraform
 data ibm_is_image "os" {
@@ -96,8 +99,9 @@ resource ibm_is_instance "vsi1" {
   keys    = ["${data.ibm_is_ssh_key.ssh_key_id.id}"]
   image   = "${data.ibm_is_image.os.id}"
   profile = "bx2-2x8"
+ ... 
 ```
-You might have spotted above that you actually need the _image-id_ (first column in the image below) but using this in a terraform file doesn't make it easier for human beeings to read it.
+You might have spotted in the above code snippet that you actually need the _image-id_ (which can be found in the first column in the image below) but using this in a terraform file doesn't make it easier for human beeings to read it.
 
 result of `ibmcloud is images`
 
