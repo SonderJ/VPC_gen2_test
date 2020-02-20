@@ -65,21 +65,26 @@ So just a few escorting hints and essential steps ...
 
     `ibmcloud is key-create jsonder @js_ssh_key2048.pub --resource-group-name default`
 
-    ... or via the IBM Cloud Portal 
+    ... or via the IBM Cloud Portal
+    
+    The [variables.tf](./variables.tf) file in this set contains the name of the default ssh-key. So if you dont want to name your public ssh-key `jsonder` in your Cloud setup you have to edit this file accordingly and replace by your key-name.
 
-When do you need actually need the Command line Interface?
+**When do you actually need the Command line Interface?**
 
-Actually I don't remember that I really needed the CLI to just execute Terraform templates with Schematics and Github. 
+Actually I don't remember that I really needed the CLI to just execute an existing Terraform templates with Schematics and Github.
+Only if you want to change something in the terraform-files you might need to pull some information out of the IBM Cloud 
 
 ```terraform
-resource ibm_is_subnet "subnet1" {
-  name = "${local.BASENAME}-subnet1"
-  vpc  = "${ibm_is_vpc.vpc.id}"
-  zone = "${local.ZONE}"
-  total_ipv4_address_count = 256
-}
-
 data ibm_is_image "os" {
   name = "ibm-ubuntu-18-04-1-minimal-amd64-1"
 }
+
+resource ibm_is_instance "vsi1" {
+  name    = "${local.BASENAME}-vsi1"
+  resource_group = "${data.ibm_resource_group.group.id}"
+  vpc     = "${ibm_is_vpc.vpc.id}"
+  zone    = "${local.ZONE}"
+  keys    = ["${data.ibm_is_ssh_key.ssh_key_id.id}"]
+  image   = "${data.ibm_is_image.os.id}"
+  profile = "bx2-2x8"
 ```
