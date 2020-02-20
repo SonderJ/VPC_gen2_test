@@ -74,7 +74,7 @@ So just a few escorting hints and essential steps ...
 Actually I don't remember that I really needed the CLI to just execute an existing Terraform templates with Schematics and Github.
 
 Only if you want to change something in the terraform-files you might need to pull some information out of the IBM Cloud. For example I changed the [terraform-file](./vpc.tf) which is actually based on the sample code of the [Getting started with Schematics](https://cloud.ibm.com/docs/schematics?topic=schematics-getting-started) guide to provision on a Gen2 based VPC instead of Gen1. 
-in Gen2 the image names are slightly different (I wouldn't mind but Terraform does ::-):) so I had to change the image name in the 
+in Gen2 the image names are slightly different (I wouldn't mind but Terraform does :wink: ) so I had to change the image name in the 
 
 ```terraform
 data ibm_is_image "os" {
