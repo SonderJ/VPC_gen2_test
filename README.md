@@ -98,4 +98,6 @@ resource ibm_is_instance "vsi1" {
 ```
 (as you see above... actually you need the image-id but adding this in the terraform file doesn't make it easier for human beeing to read)
 
+result of ´ibmcloud is images´
+
 ![ibmcloud is images](./ibmcloud_is_images.gif)
