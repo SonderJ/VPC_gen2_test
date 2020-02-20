@@ -1,7 +1,9 @@
-# Terraform on VPC Gen2 Test
-Just a very simple test to provision to do some vpc tests in IBM Cloud
-## preparation
-### things to read and watch
+# Terraform with Schematics on VPC Gen2
+
+I just did a very simple testing to provision resources on IBM Cloud with Terraform and Schematices.
+This is not another Schematics or Terraform guide (you better follow the links below) just some notes that may also help others ...    
+
+### Things to read and watch
 1. About Terraform
    - [Terraform introduction video](https://www.ibm.com/cloud/blog/new-builders/terraform)
    - [O'Reilly Book: Terraform Up & Running](https://learning.oreilly.com/library/view/terraform-up-and/9781491977071/cover.html)
@@ -18,7 +20,7 @@ Just a very simple test to provision to do some vpc tests in IBM Cloud
 
    - [Announcing IBM Cloud Collection for Ansible](https://www.ibm.com/cloud/blog/announcements/ibm-cloud-collection-for-ansible)
 
-Actually the [Getting started with Schematics](https://cloud.ibm.com/docs/schematics?topic=schematics-getting-started) explains the flow how to setup a Schematics workspace and how to prepare your environment. However there are a lot of links left and right that fork quickly and might get you off the track and might confuse more than help. 
+Actually the [Getting started with Schematics](https://cloud.ibm.com/docs/schematics?topic=schematics-getting-started) explains the flow of setting up a Schematics workspace and how to prepare your environment. However there are a lot of links left and right that fork quickly and might get you off the track and might confuse more than help. 
 
 So just a few escorting hints and essential steps ...
 
@@ -57,8 +59,6 @@ So just a few escorting hints and essential steps ...
    All CLI commands to deal with VPCs in IBM Cloud start with `ibmcloud is` (infrastructure service)
    ... so the most important command for you in the beginning will be `ibmcloud is --help` :grinning:
 
-
-
 3. Create your ssh-key pair
 
     If you haven't done already in the past you have to create an ssh-key-pair and the public part of it has to be uploaded to your account
@@ -75,7 +75,7 @@ So just a few escorting hints and essential steps ...
     
     The [variables.tf](./variables.tf) file in this set contains the name of the default ssh-key. So if you dont want to name your public ssh-key `jsonder` in your Cloud setup you have to edit this file accordingly and replace by your key-name.
 
-**When do you actually need the Command line Interface?**
+####When do you actually need the Command line Interface?
 
 Actually I don't remember that I really needed the CLI to just execute an existing Terraform templates with Schematics and Github.
 
@@ -96,7 +96,7 @@ resource ibm_is_instance "vsi1" {
   image   = "${data.ibm_is_image.os.id}"
   profile = "bx2-2x8"
 ```
-You might have spotted above that you actually need the _image-id_ (first column in the image below) but using this in the terraform file doesn't make it easier for human beeings to read i)
+You might have spotted above that you actually need the _image-id_ (first column in the image below) but using this in a terraform file doesn't make it easier for human beeings to read it.
 
 result of `ibmcloud is images`
 
