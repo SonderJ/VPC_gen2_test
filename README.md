@@ -1,7 +1,8 @@
 # Terraform with Schematics on VPC Gen2
 
-I just did a very simple testing to provision resources on IBM Cloud with Terraform and Schematices.
-This is not another Schematics or Terraform guide (you better follow the links below) just some notes that may also help others ...    
+I just did some very simple testing to provision resources on IBM Cloud with Terraform and Schematices.
+
+This is not another Schematics or Terraform guide (you better follow the links below) just some notes that may also help others ...
 
 ### Things to read and watch
 1. About Terraform
