@@ -31,17 +31,17 @@ Even if `terraform plan` command completes successfully the `terraform apply` co
 
 2. [Installing the stand-alone IBM Cloud CLI on your local system](https://cloud.ibm.com/docs/cli?topic=cloud-cli-install-ibmcloud-cli)
 
-For the first time use you IBM ID to log in with specifying the region 
-´ibmcloud login --sso -r eu-de´
+   For the first time use you IBM Cloud ID to log in with specifying the region 
+   ´ibmcloud login --sso -r eu-de´
+   This involves your web-browser in the log in process to supply you with an access token which needs to be copied back to your CLI. 
 
-[Creating an API key][https://cloud.ibm.com/docs/iam?topic=iam-userapikey#create_user_key]
+   - If you want to avoid this web-browser-detour you better [create an API-key](https://cloud.ibm.com/docs/iam?topic=iam-userapikey#create_user_key) for future logins
 
-´ibmcloud iam api-key-create MyKey -d "this is my API key" --file key_file´
-example: ´ibmcloud iam api-key-create jsonder -d "Joergs API key" --file js_api_key´
+   ´ibmcloud iam api-key-create MyKey -d "this is my API key" --file key_file´
+   example: ´ibmcloud iam api-key-create jsonder -d "Joergs API key" --file js_api_key´
 
-logging in with an API-key
-https://cloud.ibm.com/docs/iam?topic=iam-federated_id#federated_id
-ibmcloud login --apikey @key_file_name -r eu-de
+   - [logging in with an API-key](https://cloud.ibm.com/docs/iam?topic=iam-federated_id#federated_id)
+   ´ibmcloud login --apikey @key_file_name´
 
 Install or update the VPC infrastructure service plug-in.
 ´ibmcloud plugin install vpc-infrastructure´
