@@ -99,6 +99,8 @@ resource ibm_is_instance "vsi1" {
 (as you see ... actually you need the image-id but adding this in the terraform file doesn't make it easier for human beeing to read)
 
 `ibmcloud is images`
+
+[bild](./ibmcloud_is_images.gif)
 ```shell
 Listing images for generation 2 compute in all resource groups and region us-south under account Jörg Sonder's Account as user Joerg.Sonder@de.ibm.com...
 ID                                          Name                                               Status       Arch      OS                                                              File size(GB)   Visibility   Resource group   
