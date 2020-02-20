@@ -28,19 +28,23 @@ So just a few escorting hints and essential steps ...
 
    So either upgrade your free Lite Account or someone who geives you access to his account  
 
-   **Don't try to create resources trough schematics with a Lite Account!** 
+   **Don't try to create resources through schematics with a Lite Account!** 
 
-  Even if `terraform plan` command completes successfully the `terraform apply` command will only make it half way through. It successfuly creates a VPC and security groups and maybe other "free" resources but it gets stuck when creating the actual VSI. It leaves you with a Zombie-VSI that remains in starting state and you will not be able to delete this VM (not with ´terraform destroy' nor manually through the GUI). The only way to get rid of this guy is to open a ticket and let the 3rd Level support kill him.
+   Even if the `terraform plan` command completes successfully the `terraform apply` command will only make it half way through. 
+       It successfuly creates a VPC and security groups and maybe other "free" resources but it gets stuck when creating the actual VSI. It leaves you with a Zombie-VSI that remains in starting state and you will not be able to delete this VM (not with ´terraform destroy' nor manually through the GUI). The only way to get rid of this undead is to open a ticket and let the 3rd Level support kill him for you.
 
-2. [Installing the stand-alone IBM Cloud CLI on your local system](https://cloud.ibm.com/docs/cli?topic=cloud-cli-install-ibmcloud-cli)
+2. [Install the stand-alone IBM Cloud CLI on your local system](https://cloud.ibm.com/docs/cli?topic=cloud-cli-install-ibmcloud-cli)
 
-   For the first time use you IBM Cloud ID to log in with specifying the region 
-   ´ibmcloud login --sso -r eu-de´
+   You usually install the CLI directly on your Laptop but with Windows it comes with a Container environment that conflicts with other Hypervisors you may have installed so I finally decided to install everything on an Ubuntu-based VM (not all Unix derivates are supported by the CLI installer! - Ubuntu works fine , MINT doesn't)  
+      
+   For the first time use you IBM Cloud ID to log in with specifying the region (you don't need the ´-r´ option)
+   ´ibmcloud login --sso -r us-south´
    This involves your web-browser in the log in process to supply you with an access token which needs to be copied back to your CLI. 
 
-   - If you want to avoid this web-browser-detour you better [create an API-key](https://cloud.ibm.com/docs/iam?topic=iam-userapikey#create_user_key) for future logins
+   If you want to avoid this web-browser-detour you better [create an API-key](https://cloud.ibm.com/docs/iam?topic=iam-userapikey#create_user_key) for future logins
 
    ´ibmcloud iam api-key-create MyKey -d "this is my API key" --file key_file´
+   
    example: ´ibmcloud iam api-key-create jsonder -d "Joergs API key" --file js_api_key´
 
    - [logging in with an API-key](https://cloud.ibm.com/docs/iam?topic=iam-federated_id#federated_id)
