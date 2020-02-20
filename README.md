@@ -50,8 +50,12 @@ So just a few escorting hints and essential steps ...
    [logging in with an API-key](https://cloud.ibm.com/docs/iam?topic=iam-federated_id#federated_id)
    `ibmcloud login --apikey @key_file_name`
 
-    Install or update the VPC infrastructure service plug-in.
+   [x] Once you are logged in don't forget to install or update the VPC infrastructure service plug-in.
     `ibmcloud plugin install vpc-infrastructure`
+    
+    
+
+
 
 3. Create your ssh-key pair
 
@@ -73,8 +77,8 @@ So just a few escorting hints and essential steps ...
 
 Actually I don't remember that I really needed the CLI to just execute an existing Terraform templates with Schematics and Github.
 
-Only if you want to change something in the terraform-files you might need to pull some information out of the IBM Cloud. For example I changed the [terraform-file](./vpc.tf) which is actually based on the sample code of the [Getting started with Schematics](https://cloud.ibm.com/docs/schematics?topic=schematics-getting-started) guide to provision on a Gen2 based VPC instead of Gen1. 
-in Gen2 the image names are slightly different (I wouldn't mind but Terraform does :wink: ) so I had to change the image name in the 
+Only if you want to change something in the terraform-files you might need to pull some information out of the IBM Cloud. For example I changed the terraform-file which is actually based on the sample code of the [Getting started with Schematics](https://cloud.ibm.com/docs/schematics?topic=schematics-getting-started) guide to provision on a Gen2 based VPC instead of Gen1. 
+In Gen2 the image names are slightly different (I wouldn't mind but Terraform does :wink: ) so I had to change the image name in [vpc.tf](./vpc.tf). ~~You can not~~ I could not find this imgage name in the GUI but the CLI command `ibmcloud is images` lists all images in the region so that I was able to pick one
 
 ```terraform
 data ibm_is_image "os" {
