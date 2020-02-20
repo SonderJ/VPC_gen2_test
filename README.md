@@ -27,20 +27,20 @@ So just a few escorting hints and essential steps ...
 
 1. Create a [Github account](https://github.com/) to maintain and store your Terraform code
    If you want to use Terraform together with Schematics you have to use Github to link to your Terraform code templates
-1. You a fully functional IBM Cloud account. 
+1. You need a fully functional IBM Cloud account. 
 
    So either upgrade your free Lite Account or someone who geives you access to his account  
 
    **Don't try to create resources with Terraform/Schematics on a Lite Account!** 
 
    Even if the `terraform plan` command completes successfully the `terraform apply` command will only make it half way through. 
-       It successfuly creates a VPC and security groups and maybe other "free" resources but it gets stuck when creating the actual VSI. It leaves you with a Zombie-VSI that remains in starting state and you will not be able to delete this VM (not with ´terraform destroy' nor manually through the GUI). The only way to get rid of this undead is to open a ticket and let the 3rd Level support kill him for you.
+   It successfuly creates a VPC and security groups and maybe other "free" resources but it gets stuck when creating the actual VSI. It leaves you with a Zombie-VSI that remains in starting state and you will not be able to delete this VM (not with ´terraform destroy' nor manually through the GUI). The only way to get rid of this undead is to open a ticket and let the 3rd Level support kill him for you.
 
 3. [Install the stand-alone IBM Cloud CLI on your local system](https://cloud.ibm.com/docs/cli?topic=cloud-cli-install-ibmcloud-cli)
 
    You usually install the CLI directly on your Laptop but with Windows it comes with a Container environment that conflicts with other Hypervisors you may have installed so I finally decided to install everything on an Ubuntu-based VM (not all Unix derivates are supported by the CLI installer! - Ubuntu works fine , MINT doesn't)  
       
-   For the first time use you IBM Cloud ID to log in with specifying the region (you don't need the `-r` option)
+   For the first time use you IBM Cloud ID to log in with specifying the region (you don't need the `-r` option it will ask you for hte region when you login the first time and you can of course change the current region in the CLI)
    `ibmcloud login --sso -r us-south`
    This involves your web-browser in the log in process to supply you with an access token which needs to be copied back to your CLI. 
 
@@ -76,9 +76,9 @@ So just a few escorting hints and essential steps ...
     
     The [variables.tf](./variables.tf) file in this set contains the name of the default ssh-key. So if you dont want to name your public ssh-key `jsonder` in your Cloud setup you have to edit this file accordingly and replace by your key-name.
 
-####When do you actually need the Command line Interface?
+#### Why do you actually need the Command line Interface?
 
-Actually I don't remember that I really needed the CLI to just execute an existing Terraform templates with Schematics and Github.
+Actually I don't remember that I really needed the CLI to just execute an existing Terraform template with Schematics and Github.
 
 Only if you want to change something in the terraform-files you might need to pull some information out of the IBM Cloud. For example I changed the terraform-file which is actually based on the sample code of the [Getting started with Schematics](https://cloud.ibm.com/docs/schematics?topic=schematics-getting-started) guide to provision on a Gen2 based VPC instead of Gen1. 
 In Gen2 the image names are slightly different (I wouldn't mind but Terraform does :wink:) so I had to change the image name (or image ID) in [vpc.tf](./vpc.tf). ~~You can not~~ I could not find this imgage name in the GUI but the CLI command `ibmcloud is images` lists all images in the region so that I was able to pick the one I needed   
@@ -102,3 +102,5 @@ You might have spotted above that you actually need the _image-id_ (first column
 result of `ibmcloud is images`
 
 ![ibmcloud is images](./ibmcloud_is_images.gif)
+
+tbc.
