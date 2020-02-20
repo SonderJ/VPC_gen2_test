@@ -2,7 +2,7 @@
 
 I just did some very simple testing to provision resources on IBM Cloud with Terraform and Schematices.
 
-This is not another Schematics or Terraform guide (you better follow the links below) just some notes that may also help others ...
+This is not another Schematics or Terraform guide (you better follow the links below) just some notes that may help others ...
 
 ### Things to read and watch
 1. About Terraform
@@ -15,7 +15,7 @@ This is not another Schematics or Terraform guide (you better follow the links b
 
 3. About Schematics
    - [General Availability of IBM Cloud Schematics, a fully open, managed Terraform solution for deploying cloud infrastructure](https://www.ibm.com/cloud/blog/announcements/ibm-cloud-schematics-enabling-infrastructure-as-code)
-   - [Getting started with Schematics](https://cloud.ibm.com/docs/schematics?topic=schematics-getting-started)
+   - [Getting started with Schematics](https://cloud.ibm.com/docs/schematics?topic=schematics-getting-started) <= start here
    
 1. other related links
 
@@ -23,7 +23,7 @@ This is not another Schematics or Terraform guide (you better follow the links b
 
 Actually the [Getting started with Schematics](https://cloud.ibm.com/docs/schematics?topic=schematics-getting-started) explains the flow of setting up a Schematics workspace and how to prepare your environment. However there are a lot of links left and right that fork quickly and might get you off the track and might confuse more than help. 
 
-So just a few escorting hints and essential steps ...
+#### So just a few escorting hints and essential steps ...
 
 1. Create a [Github account](https://github.com/) to maintain and store your Terraform code
    If you want to use Terraform together with Schematics you have to use Github to link to your Terraform code templates
@@ -57,11 +57,12 @@ So just a few escorting hints and essential steps ...
     `ibmcloud plugin install vpc-infrastructure`
     
 3. Babysteps to get started with the CLI
+
    All CLI commands to deal with VPCs in IBM Cloud start with `ibmcloud is` (is = infrastructure service)
    
    So the most important command for you in the beginning will be `ibmcloud is --help` 
    
-   ... end of baby steps guide :grinning:
+   ... end of baby steps guide :grinning: ... ok, the real CLI guide is [here](https://cloud.ibm.com/docs/cli?topic=cloud-cli-getting-started)
 
 3. Create your ssh-key pair
 
