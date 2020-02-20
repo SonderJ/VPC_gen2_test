@@ -28,7 +28,7 @@ So just a few escorting hints and essential steps ...
 
    So either upgrade your free Lite Account or someone who geives you access to his account  
 
-   **Don't try to create resources through schematics with a Lite Account!** 
+   **Don't try to create resources with Terraform/Schematics on a Lite Account!** 
 
    Even if the `terraform plan` command completes successfully the `terraform apply` command will only make it half way through. 
        It successfuly creates a VPC and security groups and maybe other "free" resources but it gets stuck when creating the actual VSI. It leaves you with a Zombie-VSI that remains in starting state and you will not be able to delete this VM (not with ´terraform destroy' nor manually through the GUI). The only way to get rid of this undead is to open a ticket and let the 3rd Level support kill him for you.
@@ -72,7 +72,9 @@ So just a few escorting hints and essential steps ...
 **When do you actually need the Command line Interface?**
 
 Actually I don't remember that I really needed the CLI to just execute an existing Terraform templates with Schematics and Github.
-Only if you want to change something in the terraform-files you might need to pull some information out of the IBM Cloud 
+
+Only if you want to change something in the terraform-files you might need to pull some information out of the IBM Cloud. For example I changed the [terraform-file](./vpc.tf) which is actually based on the sample code of the [Getting started with Schematics](https://cloud.ibm.com/docs/schematics?topic=schematics-getting-started) guide to provision on a Gen2 based VPC instead of Gen1. 
+in Gen2 the image names are slightly different (I wouldn't mind but Terraform does ::-):) so I had to change the image name in the 
 
 ```terraform
 data ibm_is_image "os" {
